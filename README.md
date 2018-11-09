@@ -15,9 +15,10 @@ Data structure and algorithm
 * Space complexity : O(n*m), n: possible character count, m: average word length
 
 2. Benchmark
-* There are 14 languages, 14k keywords in each language, a total of about 200k keywords
 * Test the sentence and take out 5 languages to test
-*
+* There are 14 languages, 14k keywords in each language, a total of about 200k keywords
+* A total of 1000 rounds were run, and the keywords were filtered 1000 times per round.
+
 3. Optimize
 * The memory is too large, each node needs 256bytes and the path is too long, if we can compress the path, we can greatly reduce the space.
 * Compressed-trie-tree: a compressed trie tree uses very few amount of nodes which gives you a huge memory advantage especially for long strings with long common prefixes.
