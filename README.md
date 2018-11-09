@@ -4,7 +4,6 @@ a text filter with C++11
 * Adding keywords and filtering keywords
 
 Sample code:
-
-Filter filter;
-filter.load(strKeywords);
-filter.censor(strOutput);
+* Filter filter;
+* filter.load(strKeywords);
+* filter.censor(strOutput);
