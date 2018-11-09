@@ -15,10 +15,9 @@ Data structure and algorithm
 * Space complexity : O(n*m), n: possible character count, m: average word length
 
 2. Benchmark
-* 200K 個以上長度不等的不完全重複關鍵詞，過濾時輸入長度為 100 左右的句子進行測試
-* 共有14國語言，每國語言共有14k個關鍵詞，共約200k個關鍵詞
-* 測試句字，從中取出5國語言來測試
+* There are 14 languages, 14k keywords in each language, a total of about 200k keywords
+* Test the sentence and take out 5 languages to test
 *
 3. Optimize
-* The memory is too large, each node needs 256bytes, if you can compress the path, you can greatly reduce the space.
+* The memory is too large, each node needs 256bytes and the path is too long, if we can compress the path, we can greatly reduce the space.
 * Compressed-trie-tree: a compressed trie tree uses very few amount of nodes which gives you a huge memory advantage especially for long strings with long common prefixes.
