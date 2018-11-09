@@ -2,7 +2,7 @@
 #include <fstream>
 #include "Filter.h"
 
-void Filter::load(std::string& filepath)
+void Filter::Load(std::string& filepath)
 {
 	std::ifstream infile(filepath, std::ios::in);
 
@@ -21,13 +21,13 @@ void Filter::load(std::string& filepath)
 	}
 
 	infile.close();
-	m_initialized = true;
+	m_bInitialized = true;
 }
 
 
-void Filter::censor(std::string& source)
+void Filter::Censor(std::string& source)
 {
-	if (!m_initialized)
+	if (!m_bInitialized)
 	{
 		return;
 	}

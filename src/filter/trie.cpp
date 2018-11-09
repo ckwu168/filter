@@ -32,7 +32,7 @@ void Trie::Insert(const std::string& word)
         }
         cur = cur->childrens[c];
     }
-    cur->is_end = true;
+    cur->bEnd = true;
 }
     
 int Trie::Search(const TrieNode* parent, const std::string& word, const size_t idx) 
@@ -48,11 +48,11 @@ int Trie::Search(const TrieNode* parent, const std::string& word, const size_t i
     if (!cur)
     {
 		//return 0;
-        return parent->is_end ? idx : 0;
+        return parent->bEnd ? idx : 0;
     }
     if (idx == word.size() - 1)
 	{
-        return cur->is_end ? idx + 1 : 0;
+        return cur->bEnd ? idx + 1 : 0;
     }
 
     return Search(cur, word, idx + 1);

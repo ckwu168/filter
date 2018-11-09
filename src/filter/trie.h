@@ -1,5 +1,5 @@
-#ifndef TRIE_HPP
-#define TRIE_HPP
+#ifndef TRIE_H
+#define TRIE_H
 
 #include <vector>
 #include <string>
@@ -12,13 +12,13 @@ class Trie
     static constexpr size_t kAsciiCount = 256;
     struct TrieNode
     {
-        TrieNode(const char val)
-          : val(val), is_end(false), childrens(kAsciiCount, nullptr)
+        TrieNode(const char szVal)
+          : szVal(szVal), bEnd(false), childrens(kAsciiCount, nullptr)
         {
         }
 
-        char val;
-        bool is_end;
+        char szVal;
+        bool bEnd;
         std::vector<TrieNode*> childrens;
     };
 
@@ -26,7 +26,7 @@ class Trie
     Trie()
     {
         root = new TrieNode('0');
-		m_count = 0;
+		m_nCount = 0;
     }
 
     ~Trie()
@@ -51,7 +51,7 @@ class Trie
 
     TrieNode* root;
 
-	int m_count;
+	int m_nCount;
 };
 } // ns trie
 #endif

@@ -1,3 +1,5 @@
+#ifndef FILTER_H
+#define FILTER_H
 
 #include <string>
 #include "trie.h"
@@ -7,7 +9,7 @@ using namespace trie;
 class Filter
 {
 public:
-	Filter():m_initialized(false)
+	Filter():m_bInitialized(false)
 	{
 	}
 
@@ -15,10 +17,11 @@ public:
 	{
 	}
 
-	void load(std::string& fileName);
-	void censor(std::string& source);
+	void Load(std::string& fileName);
+	void Censor(std::string& source);
 
 private:
 	Trie m_tree;
-	bool m_initialized;
+	bool m_bInitialized;
 };
+#endif
