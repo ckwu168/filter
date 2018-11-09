@@ -19,6 +19,22 @@ Data structure and algorithm
 * There are 14 languages, 14k keywords in each language, a total of about 200k keywords
 * A total of 1000 rounds were run, and the keywords were filtered 1000 times per round.
 
+平均數	98.911
+標準誤	0.382339198
+中間值	96
+眾數	92
+標準差	12.09062704
+變異數	146.1832623
+峰度	48.17608222
+偏態	5.576638758
+範圍	162
+最小值	89
+最大值	251
+總和	98911
+個數	1000
+信賴度(95.0%)	0.75028006
+
+
 3. Optimize
 * The memory is too large, each node needs 256bytes and the path is too long, if we can compress the path, we can greatly reduce the space.
 * Compressed-trie-tree: a compressed trie tree uses very few amount of nodes which gives you a huge memory advantage especially for long strings with long common prefixes.
