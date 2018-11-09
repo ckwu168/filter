@@ -17,7 +17,7 @@ Data structure and algorithm
 2. Benchmark
 * Test the sentence and take out 5 languages to test
 * There are 14 languages, 14k keywords in each language, a total of about 200k keywords. https://github.com/ckwu168/filter/blob/master/data/keywords.cn.txt
-* A total of 1000 rounds were run, and the keywords were filtered 1000 times per round.
+* A total of 1000 rounds were run, and the keywords were filtered 1000 times per a round.
 * Analyze : https://github.com/ckwu168/filter/tree/master/data/analyze.xlsx
 
 3. Optimize
