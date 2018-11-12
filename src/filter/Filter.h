@@ -2,7 +2,8 @@
 #define FILTER_H
 
 #include <string>
-#include "trie.h"
+#include "Trie.h"
+#include "CompressedTrie.h"
 
 using namespace trie;
 
@@ -21,7 +22,8 @@ public:
 	void Censor(std::string& source);
 
 private:
-	Trie m_tree;
+	//Trie m_tree;
+	CompressedTrie m_tree;
 	bool m_bInitialized;
 };
 #endif

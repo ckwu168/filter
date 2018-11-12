@@ -37,8 +37,6 @@ class Trie
     Trie(const Trie&) = delete;
     Trie& operator = (const Trie&) = delete;
 
-    void Init(const std::vector<std::string>& dict);
-
 	void Insert(const std::string& word);
 
     int Lookup(const std::string& word);

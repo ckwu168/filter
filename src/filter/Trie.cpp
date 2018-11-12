@@ -4,14 +4,6 @@
 namespace trie
 {
 
-void Trie::Init(const std::vector<std::string>& dict)
-{
-    for (const std::string& word : dict)
-    {
-        Insert(word);
-    }
-}
-
 int Trie::Lookup(const std::string& word)
 {
     return Search(root, word, 0);

@@ -12,20 +12,22 @@ class CompressedTrie
     static constexpr size_t kAsciiCount = 256;
     struct TrieNode
     {
-        TrieNode(const char szVal)
-          : szVal(szVal), bEnd(false), childrens(kAsciiCount, nullptr)
+        TrieNode(bool isEnd)
+			: bEnd(isEnd)
+			, vChildrens(kAsciiCount, nullptr)
+			, vEdgeLable(kAsciiCount, "")
         {
         }
 
-        char szVal;
         bool bEnd;
-        std::vector<TrieNode*> childrens;
+        std::vector<TrieNode*> vChildrens;
+		std::vector<std::string> vEdgeLable;
     };
 
 public:
 	CompressedTrie()
     {
-        root = new TrieNode('0');
+        root = new TrieNode(false);
 		m_nCount = 0;
     }
 
@@ -36,8 +38,6 @@ public:
 
 	CompressedTrie(const CompressedTrie&) = delete;
 	CompressedTrie& operator = (const CompressedTrie&) = delete;
-
-    void Init(const std::vector<std::string>& dict);
 
 	void Insert(const std::string& word);
 
