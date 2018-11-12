@@ -4,5 +4,5 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 project(app)
 
-add_executable(app main.cpp)
+add_executable(app Main.cpp)
 target_link_libraries(app filter)

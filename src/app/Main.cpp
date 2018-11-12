@@ -4,8 +4,8 @@
 #include <cassert>
 #include <sys/timeb.h>
 #include <vector>
-#include "filter/trie.h"
-#include "filter/filter.h"
+#include "filter/Trie.h"
+#include "filter/Filter.h"
 
 using namespace trie;
 
