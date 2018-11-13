@@ -41,12 +41,11 @@ public:
 
 	void Insert(const std::string& word);
 
-    int Lookup(const std::string& word);
+    std::string Filter(std::string& text);
+	int Search(const std::string& word);
 
 private:
     
-    int Search(const TrieNode* parent, const std::string& word, const size_t idx); 
-
     void ReleaseTrie(const TrieNode* root);
 
     TrieNode* root;

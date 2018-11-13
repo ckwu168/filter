@@ -32,16 +32,6 @@ void Filter::Censor(std::string& source)
 		return;
 	}
 
-	int length = source.size();
-	for (int i = 0; i < length; ++i)
-	{
-		std::string substring = source.substr(i);
-		int idx = m_tree.Lookup(substring);
-		if (idx)
-		{
-			source.replace(i, idx, "**");
-			++i;
-			length = source.size();
-		}
-	}
+	source = m_tree.Filter(source);
+
 }

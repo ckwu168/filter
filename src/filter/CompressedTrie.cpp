@@ -4,11 +4,6 @@
 namespace trie
 {
 
-int CompressedTrie::Lookup(const std::string& word)
-{
-    return Search(root, word, 0);
-}
-
 void CompressedTrie::Insert(const std::string& word)
 {
 	if (word.empty())
@@ -75,17 +70,76 @@ void CompressedTrie::Insert(const std::string& word)
 	}
 }
     
-int CompressedTrie::Search(const TrieNode* parent, const std::string& word, const size_t idx)
+std::string CompressedTrie::Filter(std::string& text)
+{
+	std::string result;
+	int begin = 0;
+	int position = 0;
+	while (position < text.length())
+	{
+		bool bFind = false;
+		{
+			TrieNode* cur = root;
+			while (cur->vEdgeLable[static_cast<unsigned char>(text[position])] != "")
+			{
+				int index = static_cast<unsigned char>(text[position]);
+				std::string label = cur->vEdgeLable[index];
+
+				int j = 0;
+				while (j < label.length())
+				{
+					if (text[position] != label[j])
+					{
+						// character mismatch
+						break;
+					}
+					++position;
+					++j;
+				}
+
+				if (j == label.length() && position <= text.length())
+				{
+					cur = cur->vChildrens[index];
+					if (cur->bEnd)
+					{
+						begin = position;
+						bFind = true;
+					}
+				}
+				else
+				{
+					break;
+				}
+			}
+		}
+
+		if (bFind)
+		{
+			result.append("**");
+		}
+		else
+		{
+			result.append(1, text[begin]);
+			position = begin + 1;
+			begin = position;
+		}
+		
+	}
+	return result;
+}
+
+int CompressedTrie::Search(const std::string& word)
 {
 	int i = 0;
 	TrieNode* cur = root;
 
+	int position = 0;
 	while (i < word.length() && cur->vEdgeLable[static_cast<unsigned char>(word[i])] != "")
 	{
 		int index = static_cast<unsigned char>(word[i]);
 		std::string label = cur->vEdgeLable[index];
+		
 		int j = 0;
-
 		while (i < word.length() && j < label.length()) 
 		{
 			if (word[i] != label[j]) 
@@ -100,6 +154,7 @@ int CompressedTrie::Search(const TrieNode* parent, const std::string& word, cons
 		if (j == label.length() && i <= word.length()) 
 		{
 			cur = cur->vChildrens[index];    // traverse further
+			position = i;
 		}
 		else 
 		{
@@ -110,7 +165,7 @@ int CompressedTrie::Search(const TrieNode* parent, const std::string& word, cons
 	}
 
 	// target word fully traversed and current node is a word ending
-	return cur->bEnd ? i : 0;
+	return cur->bEnd ? position : 0;
 }
 
 void CompressedTrie::ReleaseTrie(const TrieNode* root)
