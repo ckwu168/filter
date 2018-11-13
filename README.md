@@ -21,5 +21,12 @@ Data structure and algorithm
 * Analyze : https://github.com/ckwu168/filter/tree/master/data/analyze.xlsx
 
 3. Optimize
-* The memory is too large, each node needs 256bytes and the path is too long, if we can compress the path, we can greatly reduce the space.
-* Compressed-trie-tree: a compressed trie tree uses very few amount of nodes which gives you a huge memory advantage especially for long strings with long common prefixes.
+* Compressed trie tree: a compressed trie tree uses very few amount of nodes which gives you a huge memory advantage especially for long strings with long common prefixes.
+<pre><code>
+                           o (root)                                                
+                           + face
+                           o                              
+                     +-----+------+                           
+                     o (ed)       o (book)                   
+
+</code></pre>
